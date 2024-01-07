@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "rootDir": "src",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "types": [
+            "node",
+            "sequelize",
+            "sequelize-typescript"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/app.tsp.ts",
+        "src/sequelize-config.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
