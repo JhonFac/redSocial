@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <button mat-raised-button color="primary" (click)="showNewPostForm()">New Post</button>
+
+                <!-- Formulario de nuevo post -->
+                <div class="card" *ngIf="showForm" color="primary">
+                    <div class="card-header card-header-primary">
+                        <h4 class=" card-title">New Post</h4>
+                        <p class="card-category">Create a new post</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="newPostForm" (ngSubmit)="createNewPost()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Title" type="text" formControlName="title">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Content" type="text" formControlName="content">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" hidden="hidden">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput value="1" formControlName="userId">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Create
+                                Post</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Lista de posts existentes -->
+                <div class="card card-stats" *ngFor="let upgrade of upgradeData">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">{{ upgrade.title }}</h4>
+                        <p class="card-title">{{ formatCreatedAt(upgrade.createdAt) }}</p>
+                    </div>
+                    <div class="card-header">
+                        <h2 style=" color: grey; ">{{ upgrade.title }}</h2>
+                        <h4 style=" color: grey; ">{{ upgrade.content }}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="javascript:void(0)" (click)="updateLikes(upgrade)">
+                                <i class="material-icons text-success">thumb_up</i>
+                            </a>
+                            <p class="card-category">{{ upgrade.like }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

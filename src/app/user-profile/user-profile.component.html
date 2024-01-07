@@ -1,0 +1,80 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Edit Profile</h4>
+            <p class="card-category">Complete your profile</p>
+          </div>
+          <div class="card-body">
+            <!-- ... -->
+            <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+              <div class="row">
+                <div hidden="hidden" class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" formControlName="fullName">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3" hidden="hidden">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" formControlName="fullName">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" formControlName="fullName">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email address" type="email" formControlName="email">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Age" type="text" formControlName="age">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" formControlName="password">
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+              <div class="clearfix"></div>
+            </form>
+            <!-- ... -->
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="javascript:void(0)">
+              <img class="img" src="./assets/img/new_logo.png">
+            </a>
+          </div>
+          <div class="card-body" *ngIf="userData">
+            <h4 class="card-title">{{ userData.fullName }}</h4>
+            <h6 class="card-category text-gray">{{ userData.age }}</h6>
+            <h6 class="card-category text-gray">{{ userData.email }}</h6>
+          </div>
+        </div>
+        <div *ngIf="showSuccessAlert" class="alert alert-success floating-alert">
+          <button mat-button type="button" class="close" (click)="closeAlert()">
+            <i class="material-icons">close</i>
+          </button>
+          <span>
+            <b> Success - </b> Actualización exitosa
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
